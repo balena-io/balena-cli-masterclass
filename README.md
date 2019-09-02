@@ -1,4 +1,4 @@
-<Name of Topic> Masterclass
+# balena-cli-masterclass Masterclass
 ===========================
 
 
