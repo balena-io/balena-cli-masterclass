@@ -6,7 +6,7 @@ COPY package.json package-lock.json ./
 
 RUN npm install --ci --production \
     && npm cache clean --force \
-    && rm -f /tmp/*
+    && rm -rf /tmp/*
 
 COPY . ./
 
