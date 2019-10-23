@@ -1103,13 +1103,14 @@ for filling in files, etc. As well as defining globally accessible secrets
 (which are shared to all services being built), there is also the option to
 define secrets that are only accessible to particular services, or to map them
 to different paths. This becomes useful in multicontainer build scenarios. This
-can be achieved by adding a `services` section to the `balena.yml` file. For
+can be achieved by appending a `services` section to `build-secrets` on the `balena.yml` file. For
 example:
 ```
-services:
-  main:
-    - source: main-only-secrets
-      dest: my-main-secrets
+build-secrets:
+  services:
+    main:
+      - source: main-only-secrets
+        dest: my-main-secrets
 ```
 This change would map the `.balena/secrets/main-only-secrets` file into the
 `/run/secrets/my-main-secrets` runtime path at build-time but *only for the
