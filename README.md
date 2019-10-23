@@ -1241,9 +1241,10 @@ As can be seen, both build arguments were available in the log output:
 In the same way that build secrets can be made service specific, so may secret
 build arguments, by specifying them directly in the `.balena/balena.yml` file:
 ```
-services:
-  main:
-    - MAIN_ONLY_BUILD_ARG=This is only available when building 'main'
+build-variables:
+  services:
+    main:
+      - MAIN_ONLY_BUILD_ARG=This is only available when building 'main'
 ```
 
 An important note for build variables is that, unlike secrets, they will be
