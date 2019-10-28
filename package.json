@@ -1,0 +1,19 @@
+{
+  "name": "balena-masterclass-skeleton",
+  "version": "0.0.0",
+  "description": "Forkable skeleton for balena masterclasses",
+  "scripts": {
+    "test": "echo \"There are no tests for this repository\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/balena-io-projects/balena-masterclass-skeleton.git"
+  },
+  "author": "Matthew McGinn <matthew@balena.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/balena-io-projects/balena-masterclass-skeleton/issues"
+  },
+  "homepage": "https://github.com/balena-io-projects/balena-masterclass-skeleton#readme",
+  "private": "true"
+}
