@@ -97,7 +97,7 @@ and NPM, you may need to prefix this command with `sudo`.
 
 To use balenaCLI, you need to login to a balenaCloud account. If you don't
 have one, you can use the dashboard
-[here](https://dashboard.balena-cloud.com/signup) or sign up when you the
+[here](https://dashboard.balena-cloud.com/signup) or sign up with the
 login command by selecting `I don't have a balena account!`. Either way,
 login via the terminal:
 ```
@@ -452,7 +452,7 @@ repository used only for pushing to the builders.
 ## 4. SSHing into a Device
 
 Once a device has been provisioned, it can be accessed by SSHing into it via
-the balenaClound VPN. To do this, you'll need the UUID of the device you want to
+the balenaCloud VPN. To do this, you'll need the UUID of the device you want to
 SSH into (remember you can see all your devices by running `balena devices`):
 ```
 $ balena ssh 1234567
@@ -530,17 +530,17 @@ machines that cache specific package/build data that you use frequently. In
 these cases, a build on a local machine may be significantly quicker than
 using balena generic builders.
 
-Before we try building locally, it's worth a note on an extra switch that
-can be used with `balena push`. `--emulated` tells balenaCLI that the target
+Before we try building locally, it's worth a note on an extra switch that can be
+used with `balena push`. `--emulated` tells balenaCLI that the target
 architecture environment should be emulated, if it differs from that of the
 native architecture on which balenaCLI is being run. For example, most
 development machines tend to use an x64 architecture, whereas a large number of
-devices are based around Armv6 or v7 (and more lately v8) architectures. As
-mentioned above, to correctly build images for Arm targets, an x64 builder must
-emulate the target architecture whilst running the Docker commands. Because
-we're assuming the use of a balenaFin here, we'll run all local builds using the
-`--emulated` switch. Should you be building for an Intel NUC, or other AMD64
-based device, you do not need to pass this switch in the following examples.
+devices are based around Armv6 or v7 (and more lately v8) architectures. To
+correctly build images for Arm targets, an x64 builder must emulate the target
+architecture whilst running the Docker commands. Because we're assuming the use
+of a balenaFin here, we'll run all local builds using the `--emulated` switch.
+Should you be building for an Intel NUC, or other AMD64 based device, you do not
+need to pass this switch in the following examples.
 
 To carry out a local build requires more information than a `balena push`,
 because balenaCLI needs to know the CPU architecture and device type to produce
@@ -918,7 +918,7 @@ On saving the file, you'll see the following output:
 [Logs]    [9/5/2019, 4:02:28 PM] [main] Hello moon!
 ```
 Instead of rebuilding the image, which takes time, the file is injected directly
-into the container's filing system and then it is restarted. This happens in a
+into the container's file system and then it is restarted. This happens in a
 few seconds and makes the process of developing much faster and more convenient.
 
 Sometimes an engineer may not want to rebuild code 'on the fly'. For this reason
