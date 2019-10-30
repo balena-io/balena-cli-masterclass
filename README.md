@@ -220,7 +220,7 @@ masterclass.
 
 ## 3. Pushing Code to a Device
 
-One an application has been created, we want to be able to push code to it.
+Once an application has been created, we want to be able to push code to it.
 There are a couple of way to do this, but the most common is that of using
 `balena push`.
 
@@ -433,7 +433,7 @@ Total 11 (delta 0), reused 3 (delta 0)
 
 To git.balena-cloud.com:heds/cliapp.git
  * [new branch]      initial-pr -> master
- ```
+```
 
 This will store the code from the local repository into the private copy
 stored by balena.
@@ -833,9 +833,10 @@ new image as the service. As an example of this, ensure you've executed
 ```
 $ balena push 827b231.local --service main
 ```
-Now modify the `Dockerfile` in the`balena-cli-masterclass` repository in a
+Now modify `Dockerfile.template` in the `balena-cli-masterclass` repository in a
 text editor, inserting a new line between the `COPY . ./` command and
 `CMD ["npm", "start"]`:
+
 ```
 ...
 COPY . ./
@@ -997,9 +998,9 @@ directory. We'll add some now, open a text editor and fill the `balena.yml`
 file with the following:
 ```
 build-secrets:
-	global:
-		- source: my-build-secrets
-		  dest: my-secrets
+  global:
+    - source: my-build-secrets
+      dest: my-secrets
 ```
 Note that the source file should exist in the `.balena/secrets` directory, and
 that it is mapped into the `my-secrets` file when the image is built.
