@@ -1,4 +1,4 @@
-balenaCLI Masterclass
+BalenaCLI Masterclass
 =====================
 
 **Masterclass Type:** Core
@@ -34,14 +34,17 @@ delighted to answer your questions.
 The location of the repository that contains this masterclass and all associated
 code is
 [https://github.com/balena-io-projects/balena-cli-masterclass](https://github.com/balena-io-projects/balena-cli-masterclass).
-Please raise an issue on this
-repository for any errors you find, or improvements you'd like, relating to this
-masterclass.
 
 # Hardware and Software Requirements
 
 It is assumed that the reader has access to the following:
 
+* A locally cloned copy of this repository
+	[Balena CLI Masterclass](https://github.com/balena-io-projects/balena-cli-masterclass).
+	Either:
+	* `git clone https://github.com/balena-io-projects/balena-cli-masterclass.git`
+	* Download ZIP file (from 'Clone or download'->'Download ZIP') and then
+		unzip it to a suitable directory
 * A balena supported device, such as a [balenaFin 1.1](https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit),
 	[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 	or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
@@ -1104,8 +1107,8 @@ for filling in files, etc. As well as defining globally accessible secrets
 (which are shared to all services being built), there is also the option to
 define secrets that are only accessible to particular services, or to map them
 to different paths. This becomes useful in multicontainer build scenarios. This
-can be achieved by appending a `services` section to `build-secrets` on the `balena.yml` file. 
-For example:
+can be achieved by appending a `services` section to `build-secrets` on the
+`balena.yml` file. For example:
 ```
 build-secrets:
   services:
