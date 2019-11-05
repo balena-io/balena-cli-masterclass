@@ -8,6 +8,6 @@ RUN npm install --ci --production \
     && npm cache clean --force \
     && rm -rf /tmp/*
 
-COPY . ./
+COPY src/ ./src/
 
 CMD ["npm", "start"]
