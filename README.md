@@ -91,7 +91,9 @@ $ npm --global install balena-cli
 ```
 This will install the balenaCLI globally and allow you to run it in a terminal
 via `balena <command>`. Note that, depending on how you've installed NodeJS
-and NPM, you may need to prefix this command with `sudo`.
+and NPM, you may need to prefix this command with `sudo`. Also, if you get an
+error such as `EACCES: permission denied`, add param `--unsafe-perm` right
+after `--global`
 
 ### 1.2 Authentication
 
