@@ -262,7 +262,7 @@ $ balena push cliApp
 [main]
 [main]      ---> 495bbe5f5018
 [main]     Removing intermediate container a99982fff18b
-[main]     Step 5/6 : COPY . ./
+[main]     Step 5/6 : COPY src/ ./src/
 [main]      ---> c51c598e9c35
 [main]     Removing intermediate container 0f10b22606b5
 [main]     Step 6/6 : CMD npm start
@@ -394,7 +394,7 @@ Total 11 (delta 0), reused 3 (delta 0)
 [main]
 [main]      ---> e2f81bc3ff91
 [main]     Removing intermediate container 72b59e4ecd47
-[main]     Step 5/6 : COPY . ./
+[main]     Step 5/6 : COPY src/ ./src/
 [main]      ---> 21b7d6b7f231
 [main]     Removing intermediate container 0658f893dadd
 [main]     Step 6/6 : CMD npm start
@@ -727,7 +727,7 @@ $ balena push 827b231.local
 [Build]
 [Build]   [main] Removing intermediate container 59c1b1cbe571
 [Build]   [main]  ---> 0cdc6d1d7af9
-[Build]   [main] Step 5/8 : COPY . ./
+[Build]   [main] Step 5/8 : COPY src/ ./src/
 [Build]   [main]  ---> 23e41b46ee6f
 [Build]   [main] Step 6/8 : CMD ["npm", "start"]
 [Build]   [main]  ---> Running in c62943c5e22f
@@ -784,7 +784,7 @@ $ balena push 827b231.local --service main
 [Build]   [main] Step 4/8 : RUN npm install --ci --production     && npm cache clean --force     && rm -f /tmp/*
 [Build]   [main]  ---> Using cache
 [Build]   [main]  ---> 0cdc6d1d7af9
-[Build]   [main] Step 5/8 : COPY . ./
+[Build]   [main] Step 5/8 : COPY src/ ./src/
 [Build]   [main]  ---> 5adcd43b12c6
 [Build]   [main] Step 6/8 : CMD ["npm", "start"]
 [Build]   [main]  ---> Running in a415b6e7f0af
@@ -839,12 +839,12 @@ new image as the service. As an example of this, ensure you've executed
 $ balena push 827b231.local --service main
 ```
 Now modify `Dockerfile.template` in the `balena-cli-masterclass` repository in a
-text editor, inserting a new line between the `COPY . ./` command and
+text editor, inserting a new line between the `COPY src/ ./src/` command and
 `CMD ["npm", "start"]`:
 
 ```
 ...
-COPY . ./
+COPY src/ ./src/
 
 RUN echo "Rebuild the image"
 
@@ -866,7 +866,7 @@ of the service:
 [Build]   [main] Step 4/9 : RUN npm install --ci --production     && npm cache clean --force     && rm -f /tmp/*
 [Build]   [main]  ---> Using cache
 [Build]   [main]  ---> 0cdc6d1d7af9
-[Build]   [main] Step 5/9 : COPY . ./
+[Build]   [main] Step 5/9 : COPY src/ ./src/
 [Build]   [main]  ---> fec02483c800
 [Build]   [main] Step 6/9 : RUN echo "Rebuild the image"
 [Build]   [main]  ---> Running in 0c1f2cbca19f
@@ -989,7 +989,7 @@ $ tree -a -I .git
 ├── .balena
 │   ├── balena.yml
 │   └── secrets
-├── Dockerfile
+├── Dockerfile.template
 ├── README.md
 ├── package-lock.json
 ├── package.json
@@ -1017,7 +1017,7 @@ This file has build-time secrets!
 Finally, we'll add a line into our Dockerfile that uses the secrets file, which
 are mapped into the `/run/secrets/` directory during build time:
 ```
-COPY . ./
+COPY src/ ./src/
 
 RUN cat /run/secrets/my-secrets
 
@@ -1049,7 +1049,7 @@ $ balena push cliApp
 [main]
 [main]      ---> 9ff0e005febd
 [main]     Removing intermediate container e0a52c6e7d2e
-[main]     Step 5/7 : COPY . ./
+[main]     Step 5/7 : COPY src/ ./src/
 [main]      ---> 211ef0e15576
 [main]     Removing intermediate container 75e2127552bf
 [main]     Step 6/7 : RUN cat /run/secrets/my-secrets
@@ -1176,7 +1176,7 @@ $ balena push cliApp --nocache
 [main]
 [main]      ---> 6369ab6a6802
 [main]     Removing intermediate container fa65ea126c2d
-[main]     Step 5/10 : COPY . ./
+[main]     Step 5/10 : COPY src/ ./src/
 [main]      ---> a7103d76c564
 [main]     Removing intermediate container ae6e3614de1d
 [main]     Step 6/10 : RUN cat /run/secrets/my-secrets
