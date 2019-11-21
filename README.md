@@ -53,7 +53,8 @@ It is assumed that the reader has access to the following:
     [Visual Code](https://code.visualstudio.com/))
 * A suitable shell environment for command execution (such as `bash`)
 * A [balenaCloud](https://www.balena.io/) account
-* A familiarity with [Dockerfiles](https://docs.docker.com/engine/reference/builder/)
+* A local installation of [Docker](https://docs.docker.com/v17.09/engine/installation/)
+	as well as a familiarity with [Dockerfiles](https://docs.docker.com/engine/reference/builder/)
 * Should you wish to install via `npm`, a [NodeJS](https://nodejs.org/en/)
 	installation, including [NPM](https://www.npmjs.com/get-npm) is required.
 	The use of [`nvm`](https://github.com/nvm-sh/nvm)
