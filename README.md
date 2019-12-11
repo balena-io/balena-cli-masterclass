@@ -1,4 +1,4 @@
-BalenaCLI Masterclass
+Balena CLI Masterclass
 =====================
 
 **Masterclass Type:** Core
@@ -6,13 +6,13 @@ BalenaCLI Masterclass
 
 # Introduction
 
-The balena Command Line Interface (balenaCLI) utility consists of a number
+The balena Command Line Interface (balena CLI) utility consists of a number
 of commands that allow a user to develop, deploy and manage balena applications
 and devices, as well as manage device configurations (including environment
 variables) and balenaOS images.
 
 Almost everything that can be achieved via the balenaCloud dashboard can also be
-achieved via the balenaCLI.
+achieved via the balena CLI.
 
 In this masterclass, you will learn how to:
 
@@ -64,7 +64,7 @@ It is assumed that the reader has access to the following:
 
 # Exercises
 
-All of the following exercises assume that you are running the balenaCLI from
+All of the following exercises assume that you are running the balena CLI from
 a suitable Unix based shell. The exercises include commands which can be run
 in such a shell, and are represented by a line prefixed with `$`. Information
 returned from execution of a command may be appended under the line to show
@@ -78,7 +78,7 @@ $ balena version
 ## 1. Installation and Authentication
 
 ### 1.1 Installation
-First we need to install balenaCLI. The easiest way to achieve this is to use
+First we need to install balena CLI. The easiest way to achieve this is to use
 the installers for your OS from the
 [balena CLI releases page](https://github.com/balena-io/balena-cli/releases).
 Choose the installer for your OS, download it and follow the instructions.
@@ -90,7 +90,7 @@ Open a terminal on your development machine and run the following command:
 ```
 $ npm --global install balena-cli
 ```
-This will install the balenaCLI globally and allow you to run it in a terminal
+This will install the balena CLI globally and allow you to run it in a terminal
 via `balena <command>`. Note that, depending on how you've installed NodeJS
 and NPM, you may need to prefix this command with `sudo`. Also, if you get an
 error such as `EACCES: permission denied`, add param `--unsafe-perm` right
@@ -98,7 +98,7 @@ after `--global`
 
 ### 1.2 Authentication
 
-To use balenaCLI, you need to login to a balenaCloud account. If you don't
+To use balena CLI, you need to login to a balenaCloud account. If you don't
 have one, you can use the dashboard
 [here](https://dashboard.balena-cloud.com/signup) or sign up with the
 login command by selecting `I don't have a balena account!`. Either way,
@@ -139,8 +139,8 @@ required.
 
 ### 2.1 Creating an Application
 
-Applications can be created via the dashboard or via the balenaCLI. We're going
-to create a new application via balenaCLI called `cliApp`. Run the following
+Applications can be created via the dashboard or via the balena CLI. We're going
+to create a new application via balena CLI called `cliApp`. Run the following
 command:
 ```
 $ balena app create cliApp
@@ -166,7 +166,7 @@ As can be seen, this will return the name of the application, its type
 type, pass the appropriate device type to the `app create` command instead.
 
 Non-interactive commands are useful when you need to script actions via
-balenaCLI for a shellscript (although balena also includes HTTPS endpoints and
+balena CLI for a shellscript (although balena also includes HTTPS endpoints and
 SDKs which can be used for this purpose).
 
 You can list the applications currently owned by (or shared with) your account
@@ -190,7 +190,7 @@ to
 
 Once the image has been flashed to the balenaFin it will register itself and
 connect to the balenaCloud VPN, showing up in the dashboard and being viewable
-using balenaCLI:
+using balena CLI:
 ```
 $ balena devices
 ID      UUID    DEVICE NAME      DEVICE TYPE  APPLICATION NAME STATUS IS ONLINE SUPERVISOR VERSION OS VERSION           DASHBOARD URL
@@ -220,7 +220,7 @@ long version (for example, the `DASHBOARD URL` field in the output above
 shows the entire UUID for the device).
 
 Be aware that there are ways to download, configure and provision an application
-image via balenaCLI, but as some extra work is required to create a provisioning
+image via balena CLI, but as some extra work is required to create a provisioning
 image (to allow greater flexibility) we'll go into that in the advanced
 masterclass.
 
@@ -233,7 +233,7 @@ There are a couple of way to do this, but the most common is that of using
 ### 3.1 `balena push`
 
 As this masterclass contains a Dockerfile and simple NodeJS source, we can
-use a balenaCLI command to 'push' the code from the masterclass repository
+use a balena CLI command to 'push' the code from the masterclass repository
 to the balena builders.
 
 Ensure that in your terminal, you have changed directory to the root of the
@@ -321,7 +321,7 @@ As a balenaFin has been provisioned against the `cliApp` application, you'll
 soon see that it starts to download the code we've just pushed (by observing
 the dashboard). Eventually, the application image will be pulled and the
 Supervisor on the device will start the service. You can look at the logs by
-using the following balenaCLI command:
+using the following balena CLI command:
 ```
 $ balena logs 1234567
 [Logs]    [9/3/2019, 11:18:50 AM] Downloading image 'registry2.balena-cloud.com/v2/1234568b5d909bf95c2bbe6c1df150f3@sha256:75f4f5bfb6e610f2b7fe8d61e8a77979a4be3de344cad09fba4df5bba8da73a3'
@@ -534,9 +534,9 @@ these cases, a build on a local machine may be significantly quicker than
 using balena generic builders.
 
 Before we try building locally, it's worth a note on an extra switch that can be
-used with `balena push`. `--emulated` tells balenaCLI that the target
+used with `balena push`. `--emulated` tells balena CLI that the target
 architecture environment should be emulated, if it differs from that of the
-native architecture on which balenaCLI is being run. For example, most
+native architecture on which balena CLI is being run. For example, most
 development machines tend to use an x64 architecture, whereas a large number of
 devices are based around Armv6 or v7 (and more lately v8) architectures. To
 correctly build images for Arm targets, an x64 builder must emulate the target
@@ -546,9 +546,9 @@ Should you be building for an Intel NUC, or other AMD64 based device, you do not
 need to pass this switch in the following examples.
 
 To carry out a local build requires more information than a `balena push`,
-because balenaCLI needs to know the CPU architecture and device type to produce
+because balena CLI needs to know the CPU architecture and device type to produce
 a Docker image that will work on the specified target. The easiest way to do
-this is to specify an application, which will allow balenaCLI to determine this
+this is to specify an application, which will allow balena CLI to determine this
 information itself by querying the balenaCloud API. In the
 `balena-cli-masterclass` repository, execute this command:
 ```
@@ -590,7 +590,7 @@ mean a far slower build than would occur than pushing to our native builders
 ### 5.2 Deploying an Image from a Development Machine
 
 An image from a development machine can be deployed as an application release
-to balenaCloud from balenaCLI. This allows any pre-built image to be uploaded
+to balenaCloud from balena CLI. This allows any pre-built image to be uploaded
 directly to balena's registry without the requirement of the builder to
 generate it first. Assuming you've followed exercise 5.1, run the following:
 ```
@@ -692,7 +692,7 @@ select 'Enable local mode'. Local mode does a couple of important things:
 	all running containers
 * Exposes a Docker socket on the local network
 
-Once activated, balenaCLI can push code directly to the local device instead
+Once activated, balena CLI can push code directly to the local device instead
 of going via the balena builders. Code is built on the device and then executed,
 which can significantly speed up development when requiring frequent changes.
 As mentioned previously, you can find local devices on your network in
@@ -830,7 +830,7 @@ Local Mode also has another huge benefit, known as Livepush.
 [Livepush](https://github.com/balena-io-modules/livepush) makes intelligent
 decisions on how, or even if, to rebuild an image when changes are made. It
 does this by examining the source directory of an image being built on your
-local development machine (via balenaCLI), and then deciding how to deal with
+local development machine (via balena CLI), and then deciding how to deal with
 changes.
 
 In some cases, Livepush rebuilds relevant parts of the image before starting the
@@ -1260,7 +1260,7 @@ be secret, they should be defined specifically as secrets.
 
 # Conclusion
 
-In this masterclass, you've learnt how to use the most commonly used balenaCLI
+In this masterclass, you've learnt how to use the most commonly used balena CLI
 commands, as well as how to start development using it. You should now be
 familiar and confident enough to:
 
