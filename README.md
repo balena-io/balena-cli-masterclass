@@ -769,9 +769,11 @@ on the device will continue to run.
 In a multicontainer environment, it may quickly become difficult for an engineer
 to determine whether their code is working, especially if many services are
 all outputting log information. In these cases, filtering log output via
-service is possible, by using the `--service` switch:
+service is possible, by using the `--service` switch (we've also used the
+`--nocache` option here to force a rebuild and restart, else we wouldn't see any
+other logs as the service wouldn't have changed):
 ```
-$ balena push 827b231.local --service main
+$ balena push 827b231.local --service main --nocache
 [Info]    Starting build on device 827b231.local
 [Info]    Creating default composition with source: .
 [Build]   [main] Step 1/8 : FROM balenalib/fincm3-node:8
