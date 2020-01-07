@@ -33,16 +33,16 @@ delighted to answer your questions.
 
 The location of the repository that contains this masterclass and all associated
 code is
-[https://github.com/balena-io-projects/balena-cli-masterclass](https://github.com/balena-io-projects/balena-cli-masterclass).
+[https://github.com/balena-io/balena-cli-masterclass](https://github.com/balena-io/balena-cli-masterclass).
 
 # Hardware and Software Requirements
 
 It is assumed that the reader has access to the following:
 
 * A locally cloned copy of this repository
-	[Balena CLI Masterclass](https://github.com/balena-io-projects/balena-cli-masterclass).
+	[Balena CLI Masterclass](https://github.com/balena-io/balena-cli-masterclass).
 	Either:
-	* `git clone https://github.com/balena-io-projects/balena-cli-masterclass.git`
+	* `git clone https://github.com/balena-io/balena-cli-masterclass.git`
 	* Download ZIP file (from 'Clone or download'->'Download ZIP') and then
 		unzip it to a suitable directory
 * A balena supported device, such as a [balenaFin 1.1](https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit),
@@ -238,7 +238,7 @@ to the balena builders.
 
 Ensure that in your terminal, you have changed directory to the root of the
 repository for this
-[masterclass](https://github.com/balena-io-projects/balena-cli-masterclass)
+[masterclass](https://github.com/balena-io/balena-cli-masterclass)
 and then type:
 ```
 $ balena push cliApp
@@ -356,7 +356,7 @@ The dashboard will display the command required to run in a directory containing
 an already initialised git repository. Copy this command, ensure in your
 terminal you change to the local cloned directory for the the source repository
 for this
-[masterclass](https://github.com/balena-io-projects/balena-cli-masterclass)
+[masterclass](https://github.com/balena-io/balena-cli-masterclass)
 and the execute the command. It should look something like this:
 ```
 $ git remote add balena myuser@git.balena-cloud.com:myuser/cliapp.git
