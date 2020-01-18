@@ -1,8 +1,8 @@
 Balena CLI Masterclass
 =====================
 
-**Masterclass Type:** Core
-**Maximum Expected Time To Complete:** 60 minutes
++ **Masterclass Type:** Core
++ **Maximum Expected Time To Complete:** 60 minutes
 
 # Introduction
 
@@ -181,7 +181,7 @@ ID      APP NAME         DEVICE TYPE      ONLINE DEVICES DEVICE COUNT
 
 You can now provision your balenaFin by downloading a provisioning image from
 the balenaCloud dashboard. Be sure to download a development image, as we'll
-be utilising its features later.
+be utilizing its features later.
 
 Once the provisioning image is downloaded, connect your balenaFin to your development machine and run
 [Etcher](https://www.balena.io/etcher/)
@@ -353,7 +353,7 @@ and methodology. However, in order to understand how this works, the following
 instructions will demonstrate how to push code via git.
 
 The dashboard will display the command required to run in a directory containing
-an already initialised git repository. Copy this command, ensure in your
+an already initialized git repository. Copy this command, ensure in your
 terminal you change to the local cloned directory for the the source repository
 for this
 [masterclass](https://github.com/balena-io/balena-cli-masterclass)
@@ -1262,7 +1262,7 @@ be secret, they should be defined specifically as secrets.
 
 # Conclusion
 
-In this masterclass, you've learnt how to use the most commonly used balena CLI
+In this masterclass, you've learned how to use the most commonly used balena CLI
 commands, as well as how to start development using it. You should now be
 familiar and confident enough to:
 
