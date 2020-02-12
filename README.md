@@ -1,10 +1,9 @@
-Balena CLI Masterclass
-=====================
+# Balena CLI Masterclass
 
-+ **Masterclass Type:** Core
-+ **Maximum Expected Time To Complete:** 60 minutes
+* **Masterclass Type:** Core
+* **Maximum Expected Time To Complete:** 60 minutes
 
-# Introduction
+## Introduction
 
 The balena Command Line Interface (balena CLI) utility consists of a number
 of commands that allow a user to develop, deploy and manage balena applications
@@ -35,16 +34,15 @@ The location of the repository that contains this masterclass and all associated
 code is
 [https://github.com/balena-io/balena-cli-masterclass](https://github.com/balena-io/balena-cli-masterclass).
 
-# Hardware and Software Requirements
+## Hardware and Software Requirements
 
 It is assumed that the reader has access to the following:
 
 * A locally cloned copy of this repository
 	[Balena CLI Masterclass](https://github.com/balena-io/balena-cli-masterclass).
 	Either:
-	* `git clone https://github.com/balena-io/balena-cli-masterclass.git`
-	* Download ZIP file (from 'Clone or download'->'Download ZIP') and then
-		unzip it to a suitable directory
+  * `git clone https://github.com/balena-io/balena-cli-masterclass.git`
+  * Download ZIP file (from 'Clone or download'->'Download ZIP') and then unzip it to a suitable directory
 * A balena supported device, such as a [balenaFin 1.1](https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit),
 	[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
 	or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
@@ -62,7 +60,7 @@ It is assumed that the reader has access to the following:
 	per-user, and also removes the need to install global dependencies using
 	`sudo`
 
-# Exercises
+## Exercises
 
 All of the following exercises assume that you are running the balena CLI from
 a suitable Unix based shell. The exercises include commands which can be run
@@ -70,14 +68,15 @@ in such a shell, and are represented by a line prefixed with `$`. Information
 returned from execution of a command may be appended under the line to show
 what might be returned. For example:
 
-```
+```shell
 $ balena version
 11.9.3
 ```
 
-## 1. Installation and Authentication
+### 1. Installation and Authentication
 
-### 1.1 Installation
+#### 1.1 Installation
+
 First we need to install balena CLI. The easiest way to achieve this is to use
 the installers for your OS from the
 [balena CLI releases page](https://github.com/balena-io/balena-cli/releases).
@@ -87,23 +86,26 @@ can download the standalone binary and then move it to a relevant location.
 
 The alternative way to install it is via `npm` on a system running NodeJS.
 Open a terminal on your development machine and run the following command:
-```
+
+```shell
 $ npm --global install balena-cli
 ```
+
 This will install the balena CLI globally and allow you to run it in a terminal
 via `balena <command>`. Note that, depending on how you've installed NodeJS
 and NPM, you may need to prefix this command with `sudo`. Also, if you get an
 error such as `EACCES: permission denied`, add param `--unsafe-perm` right
 after `--global`
 
-### 1.2 Authentication
+#### 1.2 Authentication
 
 To use balena CLI, you need to login to a balenaCloud account. If you don't
 have one, you can use the dashboard
 [here](https://dashboard.balena-cloud.com/signup) or sign up with the
 login command by selecting `I don't have a balena account!`. Either way,
 login via the terminal:
-```
+
+```shell
 $ balena login
  _            _
 | |__   __ _ | |  ____  _ __    __ _
@@ -135,32 +137,38 @@ home directory (`~/.balena/token`). Be aware that the lifetime of a balena
 JWT is limited to seven days, after which time reauthentication will be
 required.
 
-## 2. Creating an Application and Provisioning a Device
+### 2. Creating an Application and Provisioning a Device
 
-### 2.1 Creating an Application
+#### 2.1 Creating an Application
 
 Applications can be created via the dashboard or via the balena CLI. We're going
 to create a new application via balena CLI called `cliApp`. Run the following
 command:
-```
+
+```shell
 $ balena app create cliApp
 ```
+
 This will ask you which device type you wish to create the application for.
 You can scroll up and down this list using the arrow keys. For now, exit
 the command by hitting `Ctrl-C`, as there's another, non-interactive way to
 do this which we'll use instead. Type:
-```
+
+```shell
 $ balena devices supported
 ```
+
 to see a list of all supported device types by balenaCloud. For the rest of
 this masterclass we're going to assume you're using a balenaFin, but you can
 just as easily use any supported balena device.
 We'll pass the balenaFin device type (`fincm3`) to the application creation
 command directly:
-```
+
+```shell
 $ balena app create cliApp --type fincm3
 Application created: cliApp (fincm3, id 1234567)
 ```
+
 As can be seen, this will return the name of the application, its type
 (`fincm3`) and its unique ID. If you're using a different device
 type, pass the appropriate device type to the `app create` command instead.
@@ -171,13 +179,14 @@ SDKs which can be used for this purpose).
 
 You can list the applications currently owned by (or shared with) your account
 by typing:
-```
+
+```shell
 $ balena apps
 ID      APP NAME         DEVICE TYPE      ONLINE DEVICES DEVICE COUNT
 1234567 cliApp           fincm3           0              0
 ```
 
-### 2.2 Provisioning a Device
+#### 2.2 Provisioning a Device
 
 You can now provision your balenaFin by downloading a provisioning image from
 the balenaCloud dashboard. Be sure to download a development image, as we'll
@@ -191,7 +200,8 @@ to
 Once the image has been flashed to the balenaFin it will register itself and
 connect to the balenaCloud VPN, showing up in the dashboard and being viewable
 using balena CLI:
-```
+
+```shell
 $ balena devices
 ID      UUID    DEVICE NAME      DEVICE TYPE  APPLICATION NAME STATUS IS ONLINE SUPERVISOR VERSION OS VERSION           DASHBOARD URL
 7654321 1234567 restless-glade   fincm3       cliApp                  true                                              https://dashboard.balena-cloud.com/devices/12345678901234567890123456789012/summary
@@ -199,7 +209,8 @@ ID      UUID    DEVICE NAME      DEVICE TYPE  APPLICATION NAME STATUS IS ONLINE 
 
 You can get detailed information on a device by using its Universally Unique
 Identifier (UUID), for example:
-```
+
+```shell
 $ balena device 1234567
 == RESTLESS GLADE
 ID:                 7654321
@@ -224,13 +235,13 @@ image via balena CLI, but as some extra work is required to create a provisionin
 image (to allow greater flexibility) we'll go into that in the advanced
 masterclass.
 
-## 3. Pushing Code to a Device
+### 3. Pushing Code to a Device
 
 Once an application has been created, we want to be able to push code to it.
 There are a couple of way to do this, but the most common is that of using
 `balena push`.
 
-### 3.1 `balena push`
+#### 3.1 `balena push`
 
 As this masterclass contains a Dockerfile and simple NodeJS source, we can
 use a balena CLI command to 'push' the code from the masterclass repository
@@ -240,7 +251,8 @@ Ensure that in your terminal, you have changed directory to the root of the
 repository for this
 [masterclass](https://github.com/balena-io/balena-cli-masterclass)
 and then type:
-```
+
+```shell
 $ balena push cliApp
 [Info]     Starting build for cliApp, user heds
 [Info]     Dashboard link: https://dashboard.balena-cloud.com/apps/1234567/devices
@@ -322,7 +334,8 @@ soon see that it starts to download the code we've just pushed (by observing
 the dashboard). Eventually, the application image will be pulled and the
 Supervisor on the device will start the service. You can look at the logs by
 using the following balena CLI command:
-```
+
+```shell
 $ balena logs 1234567
 [Logs]    [9/3/2019, 11:18:50 AM] Downloading image 'registry2.balena-cloud.com/v2/1234568b5d909bf95c2bbe6c1df150f3@sha256:75f4f5bfb6e610f2b7fe8d61e8a77979a4be3de344cad09fba4df5bba8da73a3'
 [Logs]    [9/3/2019, 11:18:51 AM] Service exited 'main sha256:f9813f5cc0ee22ca166c93c2c72e2fb6f37dff6cb4add332e3f57e418de6b339'
@@ -342,7 +355,7 @@ $ balena logs 1234567
 [Logs]    [9/3/2019, 11:19:03 AM] [main] Hello world!
 ```
 
-### 3.2 `git push`
+#### 3.2 `git push`
 
 Traditionally, balenaCloud has exposed a private git repository endpoint that
 allows you to use `git push` to push git stored code to the balena builders.
@@ -358,12 +371,15 @@ terminal you change to the local cloned directory for the the source repository
 for this
 [masterclass](https://github.com/balena-io/balena-cli-masterclass)
 and the execute the command. It should look something like this:
-```
+
+```shell
 $ git remote add balena myuser@git.balena-cloud.com:myuser/cliapp.git
 ```
+
 This adds the balena origin to the repository. You should now be able to push
 the code to balena's private git repository:
-```
+
+```shell
 $ git push balena master
 Counting objects: 11, done.
 Delta compression using up to 4 threads.
@@ -452,24 +468,28 @@ will be available for pulling code from, and as such it should never be used
 as an application's source repository origin. It is intended to be a temporary
 repository used only for pushing to the builders.
 
-## 4. SSHing into a Device
+### 4. SSHing into a Device
 
 Once a device has been provisioned, it can be accessed by SSHing into it via
 the balenaCloud VPN. To do this, you'll need the UUID of the device you want to
 SSH into (remember you can see all your devices by running `balena devices`):
-```
+
+```shell
 $ balena ssh 1234567
 =============================================================
     Welcome to balenaOS
 =============================================================
 root@827b231:~#
 ```
+
 By default, SSH access is routed into the host balenaOS shell. However, you
 can SSH into a service by specifying its name as part of the command:
-```
+
+```shell
 $ balena ssh 1234567 main
 root@827b231:/usr/src/app#
 ```
+
 This also works in multicontainer applications, simply pass the name of the
 appropriate service as defined in `docker-compose.yml` you'd like to access
 the shell for.
@@ -483,11 +503,14 @@ use SSH by specifying the hostname or IP address of that device (development
 images have SSH enabled by default). Using `balena ssh` in this way doesn't use
 the balena VPN and instead makes a direct SSH connection to the device.
 For example:
-```
+
+```shell
 $ balena ssh 192.168.1.2
 ```
+
 To find the hostname of a local development device, you can use `balena scan`:
-```
+
+```shell
 $ sudo balena scan
 Reporting scan results
 -
@@ -508,15 +531,16 @@ Reporting scan results
     Version:    18.09.6-dev
     ApiVersion: 1.39
 ```
+
 In this instance `827b231.local` is the hostname, so the device can be SSHd
 into using `balena ssh 827b231.local`. Note that by default, the hostname
 of a device is always its short UUID, so if you already know the UUID for the
 device, you can `balena ssh <uuid>.local` without having to perform a
 `balena scan`.
 
-## 5. Building and Deploying an Application without the Builder
+### 5. Building and Deploying an Application without the Builder
 
-### 5.1 Building an Image on a Development Machine
+#### 5.1 Building an Image on a Development Machine
 
 Whilst you can build applications using the balenaCloud builder, it's also
 possible to build the application and generate the Docker images locally
@@ -551,7 +575,8 @@ a Docker image that will work on the specified target. The easiest way to do
 this is to specify an application, which will allow balena CLI to determine this
 information itself by querying the balenaCloud API. In the
 `balena-cli-masterclass` repository, execute this command:
-```
+
+```shell
 $ balena build --application cliApp --emulated
 [Info]    Creating default composition with source: /Work/Support/MasterClasses/repos/balena-cli-masterclass
 [Info]    Building for armv7hf/fincm3
@@ -559,8 +584,10 @@ $ balena build --application cliApp --emulated
 [Build]   Built 1 service in 1:32
 [Build]   main Image size: 208.45 MB
 ```
+
 A call to `docker images` will show the newly built image:
-```
+
+```shell
 $ docker images
 REPOSITORY                     TAG                                        IMAGE ID            CREATED              SIZE
 balena-cli-masterclass_main    latest                                     321025486d49        About a minute ago   219MB
@@ -570,7 +597,8 @@ As mentioned, there are instances where the ability to use balenaCloud is not
 possible (for example an airgapped network), or is not desirable. In these
 situations, `balena build` can be notified of the device type and architecture
 to build on the command line:
-```
+
+```shell
 $ balena build --arch armv7hf --deviceType fincm3 --emulated
 [Info]    Creating default composition with source: /Work/Support/MasterClasses/repos/balena-cli-masterclass
 [Info]    Building for armv7hf/fincm3
@@ -587,13 +615,14 @@ network bandwidth than that enjoyed by the balenaCloud builders, this can
 mean a far slower build than would occur than pushing to our native builders
 (which use both dedicated 64bit AMD64 and Arm servers).
 
-### 5.2 Deploying an Image from a Development Machine
+#### 5.2 Deploying an Image from a Development Machine
 
 An image from a development machine can be deployed as an application release
 to balenaCloud from balena CLI. This allows any pre-built image to be uploaded
 directly to balena's registry without the requirement of the builder to
 generate it first. Assuming you've followed exercise 5.1, run the following:
-```
+
+```shell
 $ balena deploy cliApp balena-cli-masterclass_main:latest
 [Info]    Creating default composition with image: balena-cli-masterclass_main:latest
 [Info]    Everything is up to date (use --build to force a rebuild)
@@ -627,6 +656,7 @@ $ balena deploy cliApp balena-cli-masterclass_main:latest
 			           <.'_.''
 			             <'
 ```
+
 This will create a new release (visible via the dashboard), and push the image
 directly to the balena Docker registry. Your balenaFin should then download the
 new release and run it. This is useful if you already have an image pre-built
@@ -635,7 +665,8 @@ and just need to upload it.
 However, `balena deploy` also allows you to complete the build step as well
 implicitly by not specifying an image to upload. Run the following command in
 the `balena-cli-masterclass` repository:
-```
+
+```shell
 $ balena deploy cliApp --build --emulated
 [Info]    Creating default composition with source: /Work/Support/MasterClasses/repos/balena-cli-masterclass
 [Info]    Building for armv7hf/fincm3
@@ -671,10 +702,11 @@ $ balena deploy cliApp --build --emulated
 			           <.'_.''
 			             <'
 ```
+
 This forces the `deploy` command to first build (or rebuild if the image already
 exists) the project before pushing it to the Docker registries.
 
-## 6. Using Local Mode to Develop Applications
+### 6. Using Local Mode to Develop Applications
 
 So far, you've seen how to push code to the balena builders, or to build and
 push images on a development machine. Whilst practical solutions for pre-tested
@@ -703,7 +735,8 @@ want to push code to a local device using the results from `balena scan`.
 To see this working in practice, carry out a `balena scan`, and then pass either
 the host or IP address to `balena push` whilst in the `balena-cli-masterclass`
 repository:
-```
+
+```shell
 $ balena push 827b231.local
 [Info]    Starting build on device 827b231.local
 [Info]    Creating default composition with source: .
@@ -761,6 +794,7 @@ $ balena push 827b231.local
 [Logs]    [9/5/2019, 2:34:41 PM] [main]
 [Logs]    [9/5/2019, 2:34:41 PM] [main] Hello world!
 ```
+
 Once the code has been built on the device, it immediately starts executing
 and logs are output to the console. You can halt the connection to the local
 device by using `Ctrl-C`. Note that after disconnection, the service containers
@@ -772,7 +806,8 @@ all outputting log information. In these cases, filtering log output via
 service is possible, by using the `--service` switch (we've also used the
 `--nocache` option here to force a rebuild and restart, else we wouldn't see any
 other logs as the service wouldn't have changed):
-```
+
+```shell
 $ balena push 827b231.local --service main --nocache
 [Info]    Starting build on device 827b231.local
 [Info]    Creating default composition with source: .
@@ -813,6 +848,7 @@ $ balena push 827b231.local --service main --nocache
 [Logs]    [9/5/2019, 2:46:54 PM] [main]
 [Logs]    [9/5/2019, 2:46:54 PM] [main] Hello world!
 ```
+
 As you can see, none of the Supervisor logs were printed. Note that there is
 also a `balena logs` command that is dedicated to just showing logs. This
 command includes both the `--system` and `--service` switches to filter
@@ -838,14 +874,16 @@ changes.
 In some cases, Livepush rebuilds relevant parts of the image before starting the
 new image as the service. As an example of this, ensure you've executed
 `balena push` in Local Mode:
-```
+
+```shell
 $ balena push 827b231.local --service main
 ```
+
 Now modify `Dockerfile.template` in the `balena-cli-masterclass` repository in a
 text editor, inserting a new line between the `COPY src/ ./src/` command and
 `CMD ["npm", "start"]`:
 
-```
+```shell
 ...
 COPY src/ ./src/
 
@@ -853,10 +891,12 @@ RUN echo "Rebuild the image"
 
 CMD ["npm", "start"]
 ```
+
 Finally, save the changes to the file in your text editor. The Supervisor
 will immediately detect that the Dockerfile has changed and start a rebuild
 of the service:
-```
+
+```shell
 [Live]    Detected Dockerfile change, performing full rebuild of service main
 [Build]   [main] Step 1/9 : FROM balenalib/fincm3-node:8
 [Build]   [main]  ---> 392c3f6339f7
@@ -896,6 +936,7 @@ of the service:
 [Logs]    [9/5/2019, 3:58:56 PM] [main]
 [Logs]    [9/5/2019, 3:58:56 PM] [main] Hello world!
 ```
+
 Once rebuilt, it will restart the service. Notice that the `Rebuild the image`
 echoed line is now in the build log.
 
@@ -905,15 +946,20 @@ files that run in-service, the Supervisor replaces the files in-situ in the
 relevant container layer.
 To show this, continue to run the `balena push` command and then alter the
 `src/helloworld.js` in a text editor and change:
-```
+
+```shell
 console.log('Hello world!');
 ```
+
 to
-```
+
+```shell
 console.log('Hello moon!');
 ```
+
 On saving the file, you'll see the following output:
-```
+
+```shell
 [Live]    Detected changes for container main, updating...
 [Live]    [main] Restarting service...
 [Logs]    [9/5/2019, 4:02:27 PM] [main]
@@ -922,11 +968,12 @@ On saving the file, you'll see the following output:
 [Logs]    [9/5/2019, 4:02:27 PM] [main]
 [Logs]    [9/5/2019, 4:02:28 PM] [main] Hello moon!
 ```
+
 Instead of rebuilding the image, which takes time, the file is injected directly
 into the container's file system and then it is restarted. This happens in a
 few seconds and makes the process of developing much faster and more convenient.
 
-Sometimes an engineer may not want to rebuild code 'on the fly'. For this reason
+Sometimes an engineer may not want to rebuild code 'on the fly'. For this reason</s>
 `balena push` in Local Mode also has a `--nolive` option which can be passed
 to it. When using this switch, engineers need to re`push` when they want to
 rebuild code.
@@ -934,7 +981,7 @@ rebuild code.
 Livepush also supports `balena logs`, and can be used in the same was as
 described earlier.
 
-## 7. Using Private Registries
+### 7. Using Private Registries
 
 As well as using public Docker registries it's possible to instruct builders,
 either balena-based or using Local Mode, to pull images from private Docker
@@ -942,7 +989,8 @@ registries. This is achieved by using the `--registry-secrets` switch when
 calling `balena push` passing a filename containing the secret information.
 This information can be in either YAML or JSON. For example, a relevant
 JSON object containing this information follows:
-```
+
+```json
 {
     "https://index.docker.io/v1/": {
 		"username": "myUser",
@@ -950,17 +998,20 @@ JSON object containing this information follows:
 	}
 }
 ```
+
 If saved as a JSON file, for example `secrets.json`, it will then be used when
 a base image or image for a service is pulled which requires credentials:
-```
+
+```shell
 $ balena push --registry-secrets secrets.json
 ```
+
 You can also save a file with secrets in JSON or YAML format in your home
 directory, under `~/.balena/secrets.<yml|json>`, which will automatically be
 used for the secrets if it exists and the `--registry-secrets` switch has not
 been passed to `balena push`.
 
-## 8. Building with Secrets and Variables
+### 8. Building with Secrets and Variables
 
 Building images occasionally requires the use of credentials (such as those
 for private repositories), or environment variables that may change depending
@@ -969,7 +1020,7 @@ on circumstances such as architecture (for example package versioning).
 The following exercise sections show you how to use build-time secrets and
 variable substitution.
 
-### 8.1 Build Time Secrets
+#### 8.1 Build Time Secrets
 
 Sometimes it is necessary to build images using secret information, commonly
 to login to source repositories or fetch data which is required for the building
@@ -986,7 +1037,8 @@ First create a `.balena` directory in the root of the `balena-cli-masterclass`
 directory, and then create an empty `balena.yml` file and create another
 directory called `secrets` in the `.balena` directory. You should now have a
 file tree that looks like this:
-```
+
+```shell
 $ tree -a -I .git
 .
 ├── .balena
@@ -1004,30 +1056,37 @@ You can now add secrets to the build by adding a section to the `balena.yml`
 file and then creating appropriate secret files in the `.balena/secrets`
 directory. We'll add some now, open a text editor and fill the `balena.yml`
 file with the following:
-```
+
+```yaml
 build-secrets:
   global:
     - source: my-build-secrets
       dest: my-secrets
 ```
+
 Note that the source file should exist in the `.balena/secrets` directory, and
 that it is mapped into the `my-secrets` file when the image is built.
 Save the file, and create a new one called `.balena/secrets/my-build-secrets`
 and copy the following into it:
-```
+
+```shell
 This file has build-time secrets!
 ```
+
 Finally, we'll add a line into our Dockerfile that uses the secrets file, which
 are mapped into the `/run/secrets/` directory during build time:
-```
+
+```shell
 COPY src/ ./src/
 
 RUN cat /run/secrets/my-secrets
 
 CMD ["npm", "start"]
 ```
+
 Now, push the project to the builders:
-```
+
+```shell
 $ balena push cliApp
 [Info]     Starting build for cliApp, user heds
 [Info]     Dashboard link: https://dashboard.balena-cloud.com/apps/1505952/devices
@@ -1100,12 +1159,15 @@ $ balena push cliApp
 			           <.'_.''
 			             <'
 ```
+
 As you can see, step 6 output:
-```
+
+```shell
 [main]     Step 6/7 : RUN cat /run/secrets/my-secrets
 [main]      ---> Running in 949098cba8b6
 [main]     This file has build-time secrets!
 ```
+
 which is the contents of the secrets file. This file could obviously contain
 a raft of different functions, including a script that gets executed, text
 for filling in files, etc. As well as defining globally accessible secrets
@@ -1114,18 +1176,20 @@ define secrets that are only accessible to particular services, or to map them
 to different paths. This becomes useful in multicontainer build scenarios. This
 can be achieved by appending a `services` section to `build-secrets` on the
 `balena.yml` file. For example:
-```
+
+```yaml
 build-secrets:
   services:
     main:
       - source: main-only-secrets
         dest: my-main-secrets
 ```
+
 This change would map the `.balena/secrets/main-only-secrets` file into the
 `/run/secrets/my-main-secrets` runtime path at build-time but *only for the
 `main` service*.
 
-### 8.2 Build Time Variables
+#### 8.2 Build Time Variables
 
 Another frequent build-time use is that of environment variables that may alter
 between builds but still use the same flow of a Dockerfile. Allowing these to
@@ -1135,14 +1199,17 @@ long as the variables are referenced within them.
 Much in a similar way to secrets files, these are defined in the
 `.balena/balena.yml` file. Add two new build-time arguments to your
 `balena.yml` file:
-```
+
+```yaml
 build-variables:
   global:
     - BUILD_TIME_ARG_1=This is the first arg
     - BUILD_TIME_ARG_2=This is the second arg
 ```
+
 Now alter the Dockerfile to use them:
-```
+
+```Dockerfile
 RUN cat /run/secrets/my-secrets
 
 ARG BUILD_TIME_ARG_1
@@ -1153,9 +1220,11 @@ RUN echo "${BUILD_TIME_ARG_1}" && \
 
 CMD ["npm", "start"]
 ```
+
 Note that you need to ensure that both arguments are declared using the `ARG`
 Docker command. Save the file and push to the builders:
-```
+
+```shell
 $ balena push cliApp --nocache
 [Info]     Starting build for cliApp, user heds
 [Info]     Dashboard link: https://dashboard.balena-cloud.com/apps/1505952/devices
@@ -1241,15 +1310,18 @@ $ balena push cliApp --nocache
 			           <.'_.''
 			             <'
 ```
+
 As can be seen, both build arguments were available in the log output:
-```
+
+```shell
 [main]     This is the first arg
 [main]     This is the second arg
 ```
 
 In the same way that build secrets can be made service specific, so may secret
 build arguments, by specifying them directly in the `.balena/balena.yml` file:
-```
+
+```yaml
 build-variables:
   services:
     main:
@@ -1260,7 +1332,7 @@ An important note for build variables is that, unlike secrets, they will be
 defined and available as part of the final image. If you need variables to
 be secret, they should be defined specifically as secrets.
 
-# Conclusion
+## Conclusion
 
 In this masterclass, you've learned how to use the most commonly used balena CLI
 commands, as well as how to start development using it. You should now be
@@ -1280,6 +1352,6 @@ familiar and confident enough to:
 * Use build secret files and arguments to generate images which
 	should not include those secrets, as well as build variables
 
-# References
+## References
 
 None
