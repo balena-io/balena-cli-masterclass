@@ -978,7 +978,7 @@ Sometimes an engineer may not want to rebuild code 'on the fly'. For this reason
 to it. When using this switch, engineers need to re`push` when they want to
 rebuild code.
 
-Livepush also supports `balena logs`, and can be used in the same was as
+Livepush also supports `balena logs`, and can be used in the same way as
 described earlier.
 
 ### 7. Using Private Registries
