@@ -43,10 +43,12 @@ It is assumed that the reader has access to the following:
 	Either:
   * `git clone https://github.com/balena-io/balena-cli-masterclass.git`
   * Download ZIP file (from 'Clone or download'->'Download ZIP') and then unzip it to a suitable directory
-* A balena supported device, such as a [balenaFin 1.1](https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit),
-	[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
-	or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
-	installing VirtualBox and following [this guide](https://www.balena.io/blog/no-hardware-use-virtualbox/)
+* A balena supported device, such as a [balenaFin
+  1.1](https://store.balena.io/collections/developer-kit/products/balenafin-v1-1-0-developer-kit), [Raspberry Pi
+  3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) or [Intel
+  NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
+  installing VirtualBox and following [this guide](https://www.balena.io/blog/no-hardware-use-virtualbox/) or by running balenaOS in a
+  [Docker container](https://github.com/balena-os/balenaos-in-container) on your development machine.
 * A suitable text editor for developing code on your development platform (eg.
     [Visual Code](https://code.visualstudio.com/))
 * A suitable shell environment for command execution (such as `bash`)
