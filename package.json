@@ -1,6 +1,6 @@
 {
   "name": "balena-cli-masterclass",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "balenaCLI masterclass application",
   "main": "src/helloworld.js",
   "scripts": {
