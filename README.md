@@ -558,7 +558,7 @@ these cases, a build on a local machine may be significantly quicker than
 using balena generic builders.
 
 Before we try building locally, it's worth a note on an extra switch that can be
-used with `balena push`. `--emulated` tells balena CLI that the target
+used with `balena build`. `--emulated` tells balena CLI that the target
 architecture environment should be emulated, if it differs from that of the
 native architecture on which balena CLI is being run. For example, most
 development machines tend to use an x64 architecture, whereas a large number of
