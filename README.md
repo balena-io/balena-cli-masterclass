@@ -596,7 +596,15 @@ balena-cli-masterclass_main    latest                                     321025
 As mentioned, there are instances where the ability to use balenaCloud is not
 possible (for example an airgapped network), or is not desirable. In these
 situations, `balena build` can be notified of the device type and architecture
-to build on the command line:
+to build on the command line. To get the architecture of each supported device,
+execute this command:
+
+```
+balena devices supported -v
+```
+
+Once you know the architecture and device type of the device you want to emulate,
+execute this command to start building:
 
 ```shell
 $ balena build --arch armv7hf --deviceType fincm3 --emulated
