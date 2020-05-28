@@ -470,9 +470,10 @@ repository used only for pushing to the builders.
 
 ### 4. SSHing into a Device
 
-Once a device has been provisioned, it can be accessed by SSHing into it via
-the balenaCloud VPN. To do this, you'll need the UUID of the device you want to
-SSH into (remember you can see all your devices by running `balena devices`):
+Once a device has been provisioned, it can be accessed by SSHing into it via the 
+balenaCloud VPN. To do this, you need to [add your public SSH key](https://www.balena.io/docs/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud) to your BalenaCloud 
+account. When added, specify the UUID of the device you want to SSH into 
+(remember you can see all your devices by running `balena devices`).
 
 ```shell
 $ balena ssh 1234567
