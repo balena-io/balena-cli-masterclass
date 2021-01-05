@@ -80,7 +80,7 @@ $ balena version
 First we need to install balena CLI. The easiest way to achieve this is to use
 the installers for your OS from the
 [balena CLI releases page](https://github.com/balena-io/balena-cli/releases).
-Choose the installer for your OS, download it and follow the instructions.
+Choose the installer for your OS, download it and follow [the instructions](https://github.com/balena-io/balena-cli/blob/master/INSTALL.md).
 Note that there is not currently an installer for Linux, but you
 can download the standalone binary and then move it to a relevant location.
 
