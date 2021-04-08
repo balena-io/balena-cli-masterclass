@@ -99,7 +99,7 @@ after `--global`
 
 #### 1.2 Authentication
 
-To use balena CLI, you need to login into a balenaCloud account. If you don't
+To use balena CLI, you need to log into a balenaCloud account. If you don't
 have one, you can use the dashboard
 [here](https://dashboard.balena-cloud.com/signup) or sign up with the
 login command by selecting `I don't have a balena account!`. Either way,
