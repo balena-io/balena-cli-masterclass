@@ -15,7 +15,7 @@ achieved via the balena CLI.
 In this masterclass, you will learn how to:
 
 * Login to your account
-* Push app code to a balena fleet
+* Push your first release to a balena fleet
 * Deploy locally built code to a balena fleet
 * SSH into a balena device
 * Push and build code to a device on the local network for fast
