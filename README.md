@@ -401,7 +401,7 @@ mean a far slower build than would occur than pushing to our native builders
 
 #### 5.2 Deploying an Image from a Development Machine
 
-An image from a development machine can be deployed as a Fleet release
+An image from a development machine can be deployed as a fleet release
 to balenaCloud from balena CLI. This allows any pre-built image to be uploaded
 directly to balena's registry without the requirement of the builder to
 generate it first. Assuming you've followed exercise 5.1, run the following:
