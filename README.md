@@ -490,7 +490,7 @@ $ balena deploy cliFleet --build --emulated
 This forces the `deploy` command to first build (or rebuild if the image already
 exists) the project before pushing it to the Docker registries.
 
-### 6. Using Local Mode to Develop Apps
+### 6. Using Local Mode to Develop your Application
 
 So far, you've seen how to push code to the balena builders or to build and
 push images on a development machine. Whilst practical solutions for pre-tested
