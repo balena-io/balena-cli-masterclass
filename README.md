@@ -1121,7 +1121,7 @@ In this masterclass, you've learned how to use the most commonly used balena CLI
 commands, as well as how to start development using it. You should now be
 familiar and confident enough to:
 
-* Create Fleets for specific device types
+* Create fleets for specific device types
 * Provision devices as well as SSH into balenaOS and any running service
 	container
 * Push code to Fleets, either via `balena push` or `git push`
