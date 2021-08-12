@@ -164,7 +164,7 @@ We'll pass the balenaFin device type (`fincm3`) to the fleet creation
 command directly:
 
 ```shell
-$ balena app create cliFleet --type fincm3
+$ balena fleet create cliFleet --type fincm3
 Fleet created: cliFleet (fincm3, id 1234567)
 ```
 
