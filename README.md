@@ -145,7 +145,7 @@ to create a new fleet via balena CLI called `cliFleet`. Run the following
 command:
 
 ```shell
-$ balena app create cliFleet
+$ balena fleet create cliFleet
 ```
 
 This will ask you which device type you wish to create the fleet for.
