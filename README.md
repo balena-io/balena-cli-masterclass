@@ -176,7 +176,7 @@ Non-interactive commands are useful when you need to script actions via
 balena CLI for a shell script (although balena also includes HTTPS endpoints and
 SDKs which can be used for this purpose).
 
-You can list the Fleets currently owned by (or shared with) your account
+You can list the fleets currently owned by (or shared with) your account
 by typing:
 
 ```shell
