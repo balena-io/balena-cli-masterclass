@@ -236,7 +236,7 @@ masterclass.
 
 ### 3. Pushing Code to a Device
 
-Once a fleet has been created, we want to be able to push code to it.
+Once a fleet has been created, we want to be able to push a release to it.
 There are a couple of ways to do this, but the most common is that of using
 `balena push`. See the [balena push](https://www.balena.io/docs/learn/deploy/deployment/#balena-push) docs to learn more about the command. 
 Alternatively, you can use legacy method of pushing code via `git push`. You
