@@ -1124,7 +1124,7 @@ familiar and confident enough to:
 * Create fleets for specific device types
 * Provision devices as well as SSH into balenaOS and any running service
 	container
-* Push code to Fleets, either via `balena push` or `git push`
+* Push a release to fleets, either via `balena push` or `git push`
 * Locally build service images on a development machine, as well as deploying
 	those images to balenaCloud
 * Switch a development device into Local Mode, push code locally to a device
