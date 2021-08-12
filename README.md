@@ -18,7 +18,7 @@ In this masterclass, you will learn how to:
 * Push your first release to a balena fleet
 * Deploy locally built code to a balena fleet
 * SSH into a balena device
-* Push and build code to a device on the local network for fast
+* Push and build a release on the device over local network for fast
     development and prototyping
 * Use private Docker registries for base images and services
 * Create secret files and build arguments for building service images
