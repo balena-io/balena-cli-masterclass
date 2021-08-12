@@ -504,7 +504,7 @@ devices provisioned with a development image include a device mechanism called
 device's dashboard page, select 'Actions' from the lefthand toolbar, and then
 select 'Enable local mode'. Local mode does a couple of important things:
 
-* Stops running the services currently associated with it
+* Stops running the services currently associated with the device
 * Exposes a Docker socket on the local network
 
 Once activated, balena CLI can push code directly to the local device instead
