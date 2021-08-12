@@ -7,8 +7,7 @@
 
 The balena Command Line Interface (balena CLI) utility consists of a number
 of commands that allow a user to develop, deploy and manage balena fleets, as
-well as manage device configurations (including environment variables) and 
-balenaOS images.
+well as manage configuration & variables of the fleet and balenaOS images.
 
 Almost everything that can be achieved via the balenaCloud dashboard can also be
 achieved via the balena CLI.
