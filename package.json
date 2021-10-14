@@ -1,6 +1,6 @@
 {
   "name": "balena-cli-masterclass",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "balenaCLI masterclass application",
   "main": "src/helloworld.js",
   "scripts": {
@@ -17,5 +17,8 @@
     "url": "https://github.com/balena-io/balena-cli-masterclass/issues"
   },
   "homepage": "https://github.com/balena-io/balena-cli-masterclass#readme",
-  "private": true
+  "private": true,
+  "versionist": {
+    "publishedAt": "2021-10-14T15:01:06.715Z"
+  }
 }
