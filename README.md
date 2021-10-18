@@ -6,9 +6,8 @@
 ## Introduction
 
 The balena Command Line Interface (balena CLI) utility consists of a number
-of commands that allow a user to develop, deploy and manage balena applications
-and devices, as well as manage device configurations (including environment
-variables) and balenaOS images.
+of commands that allow a user to develop, deploy and manage balena fleets, as
+well as manage configuration & variables of the fleet and balenaOS images.
 
 Almost everything that can be achieved via the balenaCloud dashboard can also be
 achieved via the balena CLI.
@@ -16,10 +15,10 @@ achieved via the balena CLI.
 In this masterclass, you will learn how to:
 
 * Login to your account
-* Push application code to a balena Application
-* Deploy locally built code to a balena Application
+* Push your first release to a balena fleet
+* Deploy locally built code to a balena fleet
 * SSH into a balena device
-* Push and build applications on a device on the local network for fast
+* Push and build a release on the device over local network for fast
     development and prototyping
 * Use private Docker registries for base images and services
 * Create secret files and build arguments for building service images
@@ -137,19 +136,19 @@ home directory (`~/.balena/token`). Be aware that the lifetime of a balena
 JWT is limited to seven days, after which time reauthentication will be
 required.
 
-### 2. Creating an Application and Provisioning a Device
+### 2. Creating a Fleet and Provisioning a Device
 
-#### 2.1 Creating an Application
+#### 2.1 Creating a Fleet
 
-Applications can be created via the dashboard or via the balena CLI. We're going
-to create a new application via balena CLI called `cliApp`. Run the following
+Fleets can be created via the dashboard or via the balena CLI. We're going
+to create a new fleet via balena CLI called `cliFleet`. Run the following
 command:
 
 ```shell
-$ balena app create cliApp
+$ balena fleet create cliFleet
 ```
 
-This will ask you which device type you wish to create the application for.
+This will ask you which device type you wish to create the fleet for.
 You can scroll up and down this list using the arrow keys. For now, exit
 the command by hitting `Ctrl-C`, as there's another, non-interactive way to
 do this which we'll use instead. Type:
@@ -161,15 +160,15 @@ $ balena devices supported
 to see a list of all supported device types by balenaCloud. For the rest of
 this masterclass we're going to assume you're using a balenaFin, but you can
 just as easily use any supported balena device.
-We'll pass the balenaFin device type (`fincm3`) to the application creation
+We'll pass the balenaFin device type (`fincm3`) to the fleet creation
 command directly:
 
 ```shell
-$ balena app create cliApp --type fincm3
-Application created: cliApp (fincm3, id 1234567)
+$ balena fleet create cliFleet --type fincm3
+Fleet created: cliFleet (fincm3, id 1234567)
 ```
 
-As can be seen, this will return the name of the application, its type
+As can be seen, this will return the name of the fleet, its type
 (`fincm3`) and its unique ID. If you're using a different device
 type, pass the appropriate device type to the `app create` command instead.
 
@@ -177,13 +176,13 @@ Non-interactive commands are useful when you need to script actions via
 balena CLI for a shell script (although balena also includes HTTPS endpoints and
 SDKs which can be used for this purpose).
 
-You can list the applications currently owned by (or shared with) your account
+You can list the fleets currently owned by (or shared with) your account
 by typing:
 
 ```shell
-$ balena apps
-ID      APP NAME         DEVICE TYPE      ONLINE DEVICES DEVICE COUNT
-1234567 cliApp           fincm3           0              0
+$ balena fleets
+ID      FLEET NAME         DEVICE TYPE      ONLINE DEVICES DEVICE COUNT
+1234567 cliFleet           fincm3           0              0
 ```
 
 #### 2.2 Provisioning a Device
@@ -203,8 +202,8 @@ using balena CLI:
 
 ```shell
 $ balena devices
-ID      UUID    DEVICE NAME      DEVICE TYPE  APPLICATION NAME STATUS IS ONLINE SUPERVISOR VERSION OS VERSION           DASHBOARD URL
-7654321 1234567 restless-glade   fincm3       cliApp                  true                                              https://dashboard.balena-cloud.com/devices/12345678901234567890123456789012/summary
+ID      UUID    DEVICE NAME      DEVICE TYPE  FLEET NAME STATUS IS ONLINE SUPERVISOR VERSION OS VERSION           DASHBOARD URL
+7654321 1234567 restless-glade   fincm3       cliFleet                  true                                              https://dashboard.balena-cloud.com/devices/12345678901234567890123456789012/summary
 ```
 
 You can get detailed information on a device by using its Universally Unique
@@ -218,7 +217,7 @@ DEVICE TYPE:        fincm3
 STATUS:             idle
 IS ONLINE:          true
 IP ADDRESS:         192.168.1.173
-APPLICATION NAME:   cliApp
+FLEET NAME:         cliFleet
 UUID:               12345678901234567890123456789012
 SUPERVISOR VERSION: 9.15.7
 IS WEB ACCESSIBLE:  false
@@ -230,14 +229,14 @@ UUIDs can either be used in their shortened version (as above) or in their
 long version (for example, the `DASHBOARD URL` field in the output above
 shows the entire UUID for the device).
 
-Be aware that there are ways to download, configure and provision an application
+Be aware that there are ways to download, configure and provision a fleet
 image via balena CLI, but as some extra work is required to create a provisioning
 image (to allow greater flexibility) we'll go into that in the advanced
 masterclass.
 
 ### 3. Pushing Code to a Device
 
-Once an application has been created, we want to be able to push code to it.
+Once a fleet has been created, we want to be able to push a release to it.
 There are a couple of ways to do this, but the most common is that of using
 `balena push`. See the [balena push](https://www.balena.io/docs/learn/deploy/deployment/#balena-push) docs to learn more about the command. 
 Alternatively, you can use legacy method of pushing code via `git push`. You
@@ -267,7 +266,7 @@ $ balena ssh 1234567 main
 root@827b231:/usr/src/app#
 ```
 
-This also works in multi-container applications, simply pass the name of the
+This also works in multi-container fleets, simply pass the name of the
 appropriate service as defined in `docker-compose.yml` you'd like to access
 the shell for.
 
@@ -315,12 +314,12 @@ of a device is always its short UUID, so if you already know the UUID for the
 device, you can `balena ssh <uuid>.local` without having to perform a
 `balena scan`.
 
-### 5. Building and Deploying an Application without the Builder
+### 5. Building and Deploying a release without the Builder
 
 #### 5.1 Building an Image on a Development Machine
 
-Whilst you can build applications using the balenaCloud builder, it's also
-possible to build the application and generate the Docker images locally
+Whilst you can build the release image using the balenaCloud builder, it's also
+possible to build and generate the release's Docker images locally
 on your development machine.
 
 There are several reasons why you want might to do this. For example, should
@@ -349,12 +348,12 @@ need to pass this switch in the following examples.
 To carry out a local build requires more information than a `balena push`,
 because balena CLI needs to know the CPU architecture and device type to produce
 a Docker image that will work on the specified target. The easiest way to do
-this is to specify an application, which will allow balena CLI to determine this
+this is to specify a fleet, which will allow balena CLI to determine this
 information itself by querying the balenaCloud API. In the
 `balena-cli-masterclass` repository, execute this command:
 
 ```shell
-$ balena build --application cliApp --emulated
+$ balena build --fleet cliFleet --emulated
 [Info]    Creating default composition with source: /Work/Support/MasterClasses/repos/balena-cli-masterclass
 [Info]    Building for armv7hf/fincm3
 [Info]    Emulation is enabled
@@ -402,13 +401,13 @@ mean a far slower build than would occur than pushing to our native builders
 
 #### 5.2 Deploying an Image from a Development Machine
 
-An image from a development machine can be deployed as an application release
+An image from a development machine can be deployed as a fleet release
 to balenaCloud from balena CLI. This allows any pre-built image to be uploaded
 directly to balena's registry without the requirement of the builder to
 generate it first. Assuming you've followed exercise 5.1, run the following:
 
 ```shell
-$ balena deploy cliApp balena-cli-masterclass_main:latest
+$ balena deploy cliFleet balena-cli-masterclass_main:latest
 [Info]    Creating default composition with image: balena-cli-masterclass_main:latest
 [Info]    Everything is up to date (use --build to force a rebuild)
 [Info]    Creating release...
@@ -452,7 +451,7 @@ implicitly by not specifying an image to upload. Run the following command in
 the `balena-cli-masterclass` repository:
 
 ```shell
-$ balena deploy cliApp --build --emulated
+$ balena deploy cliFleet --build --emulated
 [Info]    Creating default composition with source: /Work/Support/MasterClasses/repos/balena-cli-masterclass
 [Info]    Building for armv7hf/fincm3
 [Build]   Built 1 service in 0:58
@@ -491,22 +490,21 @@ $ balena deploy cliApp --build --emulated
 This forces the `deploy` command to first build (or rebuild if the image already
 exists) the project before pushing it to the Docker registries.
 
-### 6. Using Local Mode to Develop Applications
+### 6. Using Local Mode to Develop your Application
 
 So far, you've seen how to push code to the balena builders or to build and
 push images on a development machine. Whilst practical solutions for pre-tested
 code, or for a CI pipeline, this is not a fast workflow for active development
-of an application by an engineer as it involves rebuilding an image and then
+of an app by an engineer as it involves rebuilding an image and then
 delivering it to the target device.
 
-To make active development of applications easier for an engineer, balena
+To make active development of app easier for an engineer, balena
 devices provisioned with a development image include a device mechanism called
 'Local Mode'. This can be activated easily from the dashboard. Go to your
 device's dashboard page, select 'Actions' from the lefthand toolbar, and then
 select 'Enable local mode'. Local mode does a couple of important things:
 
-* Stops running the application currently associated with it, including stopping
-	all running containers
+* Stops running the services currently associated with the device
 * Exposes a Docker socket on the local network
 
 Once activated, balena CLI can push code directly to the local device instead
@@ -872,8 +870,8 @@ CMD ["npm", "start"]
 Now, push the project to the builders:
 
 ```shell
-$ balena push cliApp
-[Info]     Starting build for cliApp, user heds
+$ balena push cliFleet
+[Info]     Starting build for cliFleet, user heds
 [Info]     Dashboard link: https://dashboard.balena-cloud.com/apps/1505952/devices
 [Info]     Building on arm03
 [Info]     Pulling previous images for caching purposes...
@@ -1010,8 +1008,8 @@ Note that you need to ensure that both arguments are declared using the `ARG`
 Docker command. Save the file and push to the builders:
 
 ```shell
-$ balena push cliApp --nocache
-[Info]     Starting build for cliApp, user heds
+$ balena push cliFleet --nocache
+[Info]     Starting build for cliFleet, user heds
 [Info]     Dashboard link: https://dashboard.balena-cloud.com/apps/1505952/devices
 [Info]     Building on arm01
 [Info]     Pulling previous images for caching purposes...
@@ -1123,17 +1121,17 @@ In this masterclass, you've learned how to use the most commonly used balena CLI
 commands, as well as how to start development using it. You should now be
 familiar and confident enough to:
 
-* Create applications for specific device types
+* Create fleets for specific device types
 * Provision devices as well as SSH into balenaOS and any running service
 	container
-* Push code to applications, either via `balena push` or `git push`
+* Push a release to fleets, either via `balena push` or `git push`
 * Locally build service images on a development machine, as well as deploying
 	those images to balenaCloud
 * Switch a development device into Local Mode, push code locally to a device
-	to build an application and service images
-* Use Livepush to dynamically alter application code on the fly and immediately
+	to build, and debug the app faster.
+* Use Livepush to dynamically alter the app code on the fly and immediately
 	see results on a device in Local Mode, as well as filter log output for
-	specific services
+	specific services in the app. 
 * Use build secret files and arguments to generate images which
 	should not include those secrets, as well as build variables
 
