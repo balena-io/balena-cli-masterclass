@@ -165,7 +165,7 @@ command directly:
 
 ```shell
 $ balena fleet create cliFleet --type fincm3
-Fleet created: cliFleet (fincm3, id 1234567)
+Fleet created: slug "admin/clifleet", device type "fincm3"
 ```
 
 As can be seen, this will return the name of the fleet, its type
@@ -181,8 +181,8 @@ by typing:
 
 ```shell
 $ balena fleets
-ID      FLEET NAME         DEVICE TYPE      ONLINE DEVICES DEVICE COUNT
-1234567 cliFleet           fincm3           0              0
+ID NAME     SLUG           DEVICE TYPE   ONLINE DEVICES DEVICE COUNT
+1  cliFleet admin/clifleet fincm3        0              0
 ```
 
 #### 2.2 Provisioning a Device
