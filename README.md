@@ -168,9 +168,9 @@ $ balena fleet create cliFleet --type fincm3
 Fleet created: slug "admin/clifleet", device type "fincm3"
 ```
 
-As can be seen, this will return the name of the fleet, its type
-(`fincm3`) and its unique ID. If you're using a different device
-type, pass the appropriate device type to the `app create` command instead.
+As can be seen, this will return the fleet's slug and device type.
+If you're using a different device type, pass the appropriate device type
+to the `balena fleet create` command instead.
 
 Non-interactive commands are useful when you need to script actions via
 balena CLI for a shell script (although balena also includes HTTPS endpoints and
@@ -181,8 +181,8 @@ by typing:
 
 ```shell
 $ balena fleets
-ID NAME     SLUG           DEVICE TYPE   ONLINE DEVICES DEVICE COUNT
-1  cliFleet admin/clifleet fincm3        0              0
+ID       NAME     SLUG           DEVICE TYPE   ONLINE DEVICES DEVICE COUNT
+1234567  cliFleet admin/clifleet fincm3        0              0
 ```
 
 #### 2.2 Provisioning a Device
