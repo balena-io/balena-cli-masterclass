@@ -501,8 +501,8 @@ delivering it to the target device.
 To make active development of app easier for an engineer, balena
 devices provisioned with a development image include a device mechanism called
 'Local Mode'. This can be activated easily from the dashboard. Go to your
-device's dashboard page, select 'Actions' from the lefthand toolbar, and then
-select 'Enable local mode'. Local mode does a couple of important things:
+device's dashboard page, select 'Settings' from the lefthand toolbar, and then
+select 'Local mode'. Local mode does a couple of important things:
 
 * Stops running the services currently associated with the device
 * Exposes a Docker socket on the local network
