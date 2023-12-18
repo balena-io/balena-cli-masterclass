@@ -1,0 +1,406 @@
+- commits:
+    - subject: "patch: Add Flowzone"
+      hash: 93ed398079483e8c1cb7c72aea75a98e89ae697f
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+  version: 1.1.8
+  title: ""
+  date: 2023-12-18T16:49:39.275Z
+- version: 1.1.7
+  date: 2022-01-19T14:08:08Z
+  commits:
+    - hash: e5aa90e93d594347c684ee507404c7df26554c63
+      author: Bernhard Kaindl
+      footers:
+        change-type: patch
+      subject: Update the fleet output messages
+      body: ""
+    - hash: 14ebbb9d0351de9338725df79ce47f80b6a9f7da
+      author: Bernhard Kaindl
+      subject: Apply review findings
+      body: ""
+- version: 1.1.6
+  date: 2021-10-18T16:49:15Z
+  commits:
+    - hash: 30448117c07ee5753fa5ad4c820474eef3658260
+      author: David Tischler
+      subject: Rename Application to Fleet
+      body: "patch: Updated Readme.md"
+    - hash: 9d4ab3cb5df8cc0e9a7f0fc5a9360a003db760d6
+      author: Vipul Gupta (@vipulgupta2048)
+      footers:
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      subject: "patch: Update fleet terminology for more instances"
+      body: ""
+    - hash: 3407a56ddacbcdf9d31d05ebe34328e721d9d23e
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 97af64bc26836540f5b03f89a69dc3de1862c97a
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 6ef6203daaad951c3b5a40cfbb47a1864afd5da5
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 6eed69f0084b7821ccceb6c6d424d53c4c6eb3fb
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 3712d05b45e2e36e963b6a3912638f18f5104c67
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: f0b7069810d065316f1060b534f2a47cdae3d50a
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 0eb6387bbea90073b90cd50da718fb327650e3e4
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: ac446d292e958da77c97d67385ca78761d71a778
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: b8a4af1652b2561640758b0ed711407368408bee
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: 5098b95fcd4eaff6e374c647b51594a582cf5cc8
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: df2494d82e6a9bf9f9e3e54a125ff92052be7fcf
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+    - hash: bb552ff29db529649c58cf19b3c32bd388d0ecf1
+      author: dtischler
+      footers:
+        co-authored-by: Vipul Gupta <vipulgupta2048@gmail.com>
+      subject: Update README.md
+      body: ""
+- version: 1.1.5
+  date: 2021-07-01T09:02:38Z
+  commits:
+    - hash: 262a72a8dc7c583ae107a0b6f41ae7ff6a556106
+      author: dfunckt
+      footers:
+        change-type: patch
+      subject: Delete .github directory
+      body: ""
+- version: 1.1.4
+  date: 2021-06-29T22:09:20Z
+  commits:
+    - hash: e1c6c050ee8485bc5ea94afb9f0b7350b6fae979
+      author: Matthew Yarmolinsky
+      footers:
+        change-type: patch
+        signed-off-by: Matthew Yarmolinsky <matthew-timothy@balena.io>
+      subject: Replace git push and balena push sections with references
+      body: "Replace git push and balena push sections with references\r
+
+        \r"
+- version: 1.1.3
+  date: 2021-04-08T17:19:14Z
+  commits:
+    - hash: 6cf83162e5246ce056ce0adbd8f85b950d9f3126
+      author: Vipul Gupta
+      subject: "patch: Fix typo"
+      body: ""
+- version: 1.1.2
+  date: 2021-04-07T17:16:34Z
+  commits:
+    - hash: 73b452a2e8cc4d732a34cff20f72c33354ddac57
+      author: Marios Balamatsias
+      footers:
+        resolves: https://github.com/balena-io/docs/issues/1733
+        change-type: patch
+      subject: Fix typos in cli masterclass
+      body: ""
+- version: 1.1.1
+  date: 2021-01-13T14:51:38Z
+  commits:
+    - hash: 3ed29dc954fd997bc6f62da61c8bc7be6372c676
+      author: AlidaOdendaal
+      footers:
+        change-type: patch
+        signed-off-by: AlidaOdendaal alida@balena.io
+      subject: Update README.md
+      body: Insert the link to the balena CLI installation instructions.
+    - hash: 8728d9facf34c9945d4a4d663e2e3c279f49c71a
+      author: AlidaOdendaal
+      footers:
+        change-type: patch
+        signed-off-by: AlidaOdendaal <alida@balena.io>
+      subject: Configure not to run checks for node versions < 14
+      body: ""
+- version: 1.1.0
+  date: 2020-05-29T07:14:07Z
+  commits:
+    - hash: 957c7003cb519dc76de2965cecd09ea889b805c6
+      author: Vipul Gupta
+      footers:
+        change-type: minor
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipul@balena.io>
+      subject: Add instructions to add SSH key to BalenaCloud
+      body: ""
+- version: 1.0.20
+  date: 2020-05-27T11:53:17Z
+  commits:
+    - hash: eb7ac26b5edeb45f2e5c8d76c33c65bd93a92726
+      author: Matthew McGinn
+      footers:
+        connects-to: "#27"
+        change-type: patch
+        signed-off-by: Matthew McGinn <matthew@balena.io>
+      subject: fix up broken fin link
+      body: ""
+- version: 1.0.19
+  date: 2020-05-08T20:01:00Z
+  commits:
+    - hash: b7b8def5bd41792b85f9e60d36e15f85dd39b645
+      author: Gareth Davies
+      footers:
+        change-type: patch
+        signed-off-by: Gareth Davies <gareth@balena.io>
+      subject: Removing Gareth from codeowners
+      body: ""
+- version: 1.0.18
+  date: 2020-04-30T19:41:20Z
+  commits:
+    - hash: 82873af0f26e1e52c9fc02e91de4320f46170ca6
+      author: Carlo Miguel Cruz
+      footers:
+        change-type: patch
+        signed-off-by: Carlo Miguel Cruz <carloc@balena.io>
+      subject: Adds command to see device architecture.
+      body: "Since the balena build command requires the architecture and device type,
+        we should indicate the command `balena devices supported -v` that shows
+        the architecture of each supported device.\r
+
+        \r"
+- version: 1.0.17
+  date: 2020-04-30T15:54:51Z
+  commits:
+    - hash: 5c1492f4d3624df1572db9d478f4d1037e5b91e0
+      author: Carlo Miguel Cruz
+      footers:
+        change-type: patch
+        signed-off-by: Carlo Miguel Cruz <carloc@balena.io>
+      subject: Updates README.md.
+      body: Line 561 should be `balena build` instead of `balena push` as it refers to
+        the build command.
+- version: 1.0.16
+  date: 2020-04-20T19:37:01Z
+  commits:
+    - hash: 2f1c2ac80db3c96be0796b4ba81dd7d2dd7411ac
+      author: Matthew McGinn
+      footers:
+        change-type: patch
+        signed-off-by: Matthew McGinn <matthew@balena.io>
+      subject: remove hedss as codeowner
+      body: ""
+- version: 1.0.15
+  date: 2020-02-19T12:35:46Z
+  commits:
+    - hash: 0f6b2e590faeacda1079c75701ecedfa75408cb8
+      author: Josh Bowling
+      footers:
+        change-type: patch
+        signed-off-by: Josh Bowling <josh@balena.io>
+      subject: Fix small typo in readme
+      body: ""
+- version: 1.0.14
+  date: 2020-02-12T19:53:56Z
+  commits:
+    - hash: 9d9a6cfb2ea5ea0042703e2a8e3069c4a9dc5d81
+      author: Gareth Davies
+      footers:
+        change-type: patch
+        signed-off-by: Gareth Davies gareth@balena.io
+      subject: "meta: Formatting using markdownlint"
+      body: ""
+    - hash: 16724c09f463cfebf25ef4af7d847b93e8ccecc1
+      author: Matthew McGinn
+      footers:
+        change-type: patch
+        signed-off-by: Matthew McGinn <matthew@balena.io>
+      subject: minor spelling/formatting updates
+      body: ""
+- version: 1.0.13
+  date: 2020-01-07T11:01:42Z
+  commits:
+    - hash: f278a6d31eab1764d2c852b7df87e4eef21a86dd
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "readme: Ensure service log example outputs something"
+      body: ""
+- version: 1.0.12
+  date: 2020-01-07T10:53:36Z
+  commits:
+    - hash: ceb85f510ae6f6e268db286e9c2a5b5d186a9625
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "org: Change from balena-io-projects to balena-io"
+      body: ""
+- version: 1.0.11
+  date: 2019-12-11T16:12:28Z
+  commits:
+    - hash: 020abf239c49333b2ac36cfb4a28743be5e3d271
+      author: Gareth Davies
+      footers:
+        change-type: patch
+        signed-off-by: Gareth Davies <gareth@balena.io>
+      subject: "docs: Rename balenaCLI to balena CLI"
+      body: ""
+- version: 1.0.10
+  date: 2019-11-22T10:21:14Z
+  commits:
+    - hash: 447f360d3a8a764c18bba52384f54eaca7a992ba
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "readme: Note that Docker should be installed"
+      body: ""
+- version: 1.0.9
+  date: 2019-11-18T10:21:44Z
+  commits:
+    - hash: 357532f2a7bde98d00fe74e55e7781027676a9b5
+      author: Federico Fissore
+      footers:
+        change-type: patch
+        signed-off-by: Federico Fissore <federico@fissore.org>
+      subject: "Pushing Code to a Device: small fixes to README.md"
+      body: ""
+- version: 1.0.8
+  date: 2019-11-18T09:09:04Z
+  commits:
+    - hash: e5c81928b36dd4a25eca89ea393a2a18c7cfc48f
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "package: Ensure `private` field is a boolean"
+      body: ""
+- version: 1.0.7
+  date: 2019-11-15T12:00:46Z
+  commits:
+    - hash: 4981be90c54e2dd735eeb14df364d03bf18702e2
+      author: Federico Fissore
+      footers:
+        change-type: patch
+        signed-off-by: Federico Fissore <federico@fissore.org>
+      subject: "1.1 Installation: mentioning `--unsafe-perm` npm param"
+      body: |-
+        Add `--unsafe-perm` param to npm command line if you get a EACCESS
+        permission denied error
+- version: 1.0.6
+  date: 2019-11-05T17:33:03Z
+  commits:
+    - hash: 9e88fd747146a462a56a297ff139527d2bb53dfb
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "readme/.gitignore: Update README to add repo details and add .gitignore"
+      body: ""
+    - hash: 2e41636f14aeafa974e1db102ab75639bbffe13f
+      author: Gareth Davies
+      footers:
+        change-type: patch
+        signed-off-by: Gareth Davies gareth@balena.io
+      subject: Minor formatting
+      body: "Closes #7"
+- version: 1.0.5
+  date: 2019-10-30T13:32:14Z
+  commits:
+    - hash: d72be4081305f880531ae6e27c0747ac58a73783
+      author: Tomás Migone
+      footers:
+        change-type: patch
+        signed-off-by: Tomás Migone <tomas@balena.io>
+      subject: Clarify YAML structure for service specific secrets.
+      body: ""
+- version: 1.0.4
+  date: 2019-10-30T11:41:56Z
+  commits:
+    - hash: 77e7bdc4364e25357d63c081846ec13261e16fdc
+      author: Matthew McGinn
+      footers:
+        signed-off-by: Matthew McGinn <matthew@balena.io>
+        change-type: patch
+      subject: "meta: add CODEOWNERS"
+      body: ""
+- version: 1.0.3
+  date: 2019-10-30T10:01:36Z
+  commits:
+    - hash: 937f7a5ffd7fc58ba3a8eab29a8fb2911e80e18c
+      author: AlidaOdendaal
+      footers:
+        change-type: patch
+        signed-off-by: AlidaOdendaal <alida@balena.io>
+      subject: Fix minor typos
+      body: ""
+- version: 1.0.2
+  date: 2019-10-22T14:53:34Z
+  commits:
+    - hash: b990bb4e447eb3b08b6dd54a972ecbbb777df7f2
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "dockerfile: Update to use recursive dir removal."
+      body: ""
+- version: 1.0.1
+  date: 2019-09-30T12:52:32Z
+  commits:
+    - hash: 6f5ccd05ebf52d96dbfbb65588f82cd4e7faf076
+      author: Heds Simons
+      footers:
+        change-type: patch
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "npm: Ensure package isn't published"
+      body: ""
+- version: 1.0.0
+  date: 2019-09-30T12:38:08Z
+  commits:
+    - hash: 1227f9ca839514662dce50964fd261fa596f2c0b
+      author: Heds Simons
+      footers:
+        change-type: major
+        signed-off-by: Heds Simons <heds@balena.io>
+      subject: "masterclass: Initial PR for balenaCLI masterclass"
+      body: ""
