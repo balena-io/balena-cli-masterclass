@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: Replace balenaFin link"
+      hash: 6bda6ac22a9104a855fce85b59337a42851b6362
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+  version: 1.1.9
+  title: ""
+  date: 2023-12-19T09:05:39.112Z
+- commits:
     - subject: "patch: Add Flowzone"
       hash: 93ed398079483e8c1cb7c72aea75a98e89ae697f
       body: ""
