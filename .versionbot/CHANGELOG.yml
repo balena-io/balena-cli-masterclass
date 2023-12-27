@@ -1,4 +1,13 @@
 - commits:
+    - subject: 'patch: Update the activation of "Local Mode"'
+      hash: 8e0c59c39136a4257453af93b73c28d7bc0dc89f
+      body: ""
+      footer: {}
+      author: Markus Grunwald
+  version: 1.1.10
+  title: ""
+  date: 2023-12-27T12:03:03.429Z
+- commits:
     - subject: "patch: Replace balenaFin link"
       hash: 6bda6ac22a9104a855fce85b59337a42851b6362
       body: ""
