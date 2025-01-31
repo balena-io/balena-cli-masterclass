@@ -1,4 +1,13 @@
 - commits:
+    - subject: "patch: Update Dockerfile.template"
+      hash: 0079712639160d082c3a061a5a9c22be860ea818
+      body: ""
+      footer: {}
+      author: Vipul Gupta
+  version: 1.1.11
+  title: ""
+  date: 2025-01-31T16:00:01.926Z
+- commits:
     - subject: 'patch: Update the activation of "Local Mode"'
       hash: 8e0c59c39136a4257453af93b73c28d7bc0dc89f
       body: ""
