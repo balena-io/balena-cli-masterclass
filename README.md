@@ -42,8 +42,7 @@ It is assumed that the reader has access to the following:
 	Either:
   * `git clone https://github.com/balena-io/balena-cli-masterclass.git`
   * Download ZIP file (from 'Clone or download'->'Download ZIP') and then unzip it to a suitable directory
-* A balena supported device, such as a [balenaFin 1.1](https://fin-docs.balena.io/1.1.x/getting-started/),
-	[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+* A balena supported device, such as a [Raspberry Pi 5](https://www.raspberrypi.org/products/raspberry-pi-5/)
 	or [Intel NUC](https://www.intel.co.uk/content/www/uk/en/products/boards-kits/nuc.html). If you don't have a device, you can emulate an Intel NUC by
 	installing VirtualBox and following [this guide](https://www.balena.io/blog/no-hardware-use-virtualbox/)
 * A suitable text editor for developing code on your development platform (eg.
@@ -154,7 +153,7 @@ the command by hitting `Ctrl-C`, as there's another, non-interactive way to
 do this which we'll use instead. Type:
 
 ```shell
-$ balena devices supported
+$ balena device-type list
 ```
 
 to see a list of all supported device types by balenaCloud. For the rest of
@@ -180,7 +179,7 @@ You can list the fleets currently owned by (or shared with) your account
 by typing:
 
 ```shell
-$ balena fleets
+$ balena fleet list
 ID       NAME     SLUG           DEVICE TYPE   ONLINE DEVICES DEVICE COUNT
 1234567  cliFleet admin/clifleet fincm3        0              0
 ```
@@ -201,7 +200,7 @@ connect to the balenaCloud VPN, showing up in the dashboard and being viewable
 using balena CLI:
 
 ```shell
-$ balena devices
+$ balena device list
 ID      UUID    DEVICE NAME      DEVICE TYPE  FLEET NAME STATUS IS ONLINE SUPERVISOR VERSION OS VERSION           DASHBOARD URL
 7654321 1234567 restless-glade   fincm3       cliFleet                  true                                              https://dashboard.balena-cloud.com/devices/12345678901234567890123456789012/summary
 ```
@@ -248,10 +247,10 @@ on to the next step, make sure you know how to push code to a device.
 Once a device has been provisioned, it can be accessed by SSHing into it via the 
 balenaCloud VPN. To do this, you need to [add your public SSH key](https://www.balena.io/docs/learn/manage/ssh-access/#add-an-ssh-key-to-balenacloud) to your BalenaCloud 
 account. When added, specify the UUID of the device you want to SSH into 
-(remember you can see all your devices by running `balena devices`).
+(remember you can see all your devices by running `balena device list`).
 
 ```shell
-$ balena ssh 1234567
+$ balena device ssh 1234567
 =============================================================
     Welcome to balenaOS
 =============================================================
@@ -262,7 +261,7 @@ By default, SSH access is routed into the host balenaOS shell. However, you
 can SSH into a service by specifying its name as part of the command:
 
 ```shell
-$ balena ssh 1234567 main
+$ balena device ssh 1234567 main
 root@827b231:/usr/src/app#
 ```
 
@@ -270,24 +269,24 @@ This also works in multi-container fleets, simply pass the name of the
 appropriate service as defined in `docker-compose.yml` you'd like to access
 the shell for.
 
-When using device UUIDs, `balena ssh` uses the balena VPN to create a secure
+When using device UUIDs, `balena device ssh` uses the balena VPN to create a secure
 tunnel to the device and then forward SSH traffic between it and your
 development machine (for production devices, this is the only available method).
 
 For devices running development images on your local network, you can also
 use SSH by specifying the hostname or IP address of that device (development
-images have SSH enabled by default). Using `balena ssh` in this way doesn't use
+images have SSH enabled by default). Using `balena device ssh` in this way doesn't use
 the balena VPN and instead makes a direct SSH connection to the device.
 For example:
 
 ```shell
-$ balena ssh 192.168.1.2
+$ balena device ssh 192.168.1.2
 ```
 
-To find the hostname of a local development device, you can use `balena scan`:
+To find the hostname of a local development device, you can use `balena device detect`:
 
 ```shell
-$ sudo balena scan
+$ sudo balena device detect
 Reporting scan results
 -
   host:          827b231.local
@@ -309,10 +308,10 @@ Reporting scan results
 ```
 
 In this instance `827b231.local` is the hostname, so the device can be SSHd
-into using `balena ssh 827b231.local`. Note that by default, the hostname
+into using `balena device ssh 827b231.local`. Note that by default, the hostname
 of a device is always its short UUID, so if you already know the UUID for the
-device, you can `balena ssh <uuid>.local` without having to perform a
-`balena scan`.
+device, you can `balena device ssh <uuid>.local` without having to perform a
+`balena device detect`.
 
 ### 5. Building and Deploying a release without the Builder
 
@@ -511,11 +510,11 @@ Once activated, balena CLI can push code directly to the local device instead
 of going via the balena builders. Code is built on the device and then executed,
 which can significantly speed up development when requiring frequent changes.
 As mentioned previously, you can find local devices on your network in
-development mode by using `balena scan`.
+development mode by using `balena device detect`.
 
 `balena push` includes optional switches which allow you to specify that you
-want to push code to a local device using the results from `balena scan`.
-To see this working in practice, carry out a `balena scan`, and then pass either
+want to push code to a local device using the results from `balena device detect`.
+To see this working in practice, carry out a `balena device detect`, and then pass either
 the host or IP address to `balena push` whilst in the `balena-cli-masterclass`
 repository:
 
@@ -633,18 +632,18 @@ $ balena push 827b231.local --service main --nocache
 ```
 
 As you can see, none of the Supervisor logs were printed. Note that there is
-also a `balena logs` command that is dedicated to just showing logs. This
+also a `balena device logs` command that is dedicated to just showing logs. This
 command includes both the `--system` and `--service` switches to filter
 output to just that of system messages or particular service messages (these
-switches can be combined in a single `balena logs` call). This allows the
+switches can be combined in a single `balena device logs` call). This allows the
 setup of multiple terminals to act as loggers whilst another is used to
 carry out `balena push` executions. A few examples of logging are shown below:
 
-* `balena logs 827b231.local --system --service main` - Will output all
+* `balena device logs 827b231.local --system --service main` - Will output all
 	system messages and those from the `main` service
-* `balena logs 827b231.local --service main` will only output messages from
+* `balena device logs 827b231.local --service main` will only output messages from
 	the `main` service
-* `balena logs 827b231.local --service main --service secondary` will only
+* `balena device logs 827b231.local --service main --service secondary` will only
 	output messages from the `main` and `secondary` services
 
 Local Mode also has another huge benefit, known as Livepush.
@@ -761,7 +760,7 @@ Sometimes an engineer may not want to rebuild code 'on the fly'. For this reason
 to it. When using this switch, engineers need to re`push` when they want to
 rebuild code.
 
-Livepush also supports `balena logs`, and can be used in the same way as
+Livepush also supports `balena device logs`, and can be used in the same way as
 described earlier.
 
 ### 7. Using Private Registries
