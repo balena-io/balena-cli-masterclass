@@ -1,4 +1,15 @@
 - commits:
+    - subject: Update README with CLI masterclass reference
+      hash: 4d763632d4fdbeb01d501fae158120e9ca85698d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Matthew Yarmolinsky
+  version: 1.1.13
+  title: ""
+  date: 2026-05-29T12:56:15.559Z
+- commits:
     - subject: Update commands for CLI v20
       hash: 881707ac6ac75b21c9321f6c29d374f035b4ecc3
       body: ""
